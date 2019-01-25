@@ -7,19 +7,19 @@ const socket = require('socket.io')(server)
     const {StringDecoder} = require('string_decoder')
     const decoder = new StringDecoder('utf8')
 
-var HOST = ""
+var HOST = "192.168.43.150"
 var PORT = 4000
 
+var PORT2 =process.env.PORT || 4000
 
-server.listen(PORT,function(){
-    console.log('Servidor Activo ' + HOST + ':' + PORT)
+
+server.listen(PORT2,function(){
+    console.log('Servidor Activo')
 })
 
 var ser = net.createServer(function(so){
 
-HOST=ser.address().address();
-
-
+    
     so.on('connect',function(){
 
         console.log('Nuevo Usuario ' + so.remoteAddress + ':' + so.remotePort)
@@ -37,4 +37,3 @@ HOST=ser.address().address();
     })
 })
 
-ser.listen(PORT,HOST)
