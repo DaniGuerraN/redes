@@ -7,13 +7,15 @@ const socket = require('socket.io')(server)
     const {StringDecoder} = require('string_decoder')
     const decoder = new StringDecoder('utf8')
 
-var HOST = "192.168.43.150"
+var HOST = "https://redes-tarea-servidor.herokuapp.com"
 var PORT = 4000
 
-var PORT2 =process.env.PORT || 4000
 
+aplication.get("/",function(req,res){
+    res.send("Servidor activo");
+})
 
-server.listen(PORT2,function(){
+server.listen(PORT,function(){
     console.log('Servidor Activo')
 })
 
@@ -37,3 +39,4 @@ var ser = net.createServer(function(so){
     })
 })
 
+ser.listen(PORT,HOST)
