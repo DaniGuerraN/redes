@@ -7,7 +7,7 @@ const socket = require('socket.io')(server)
     const {StringDecoder} = require('string_decoder')
     const decoder = new StringDecoder('utf8')
 
-var HOST = "192.168.43.150"
+var HOST = ""
 var PORT = 4000
 
 
@@ -16,6 +16,9 @@ server.listen(PORT,function(){
 })
 
 var ser = net.createServer(function(so){
+
+HOST=ser.address().address();
+
 
     so.on('connect',function(){
 
