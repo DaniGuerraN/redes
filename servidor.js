@@ -30,6 +30,7 @@ const socket = require('socket.io')(server)
 var HOST = ipDinamic
 var PORT = process.env.PORT || 5000
 
+var PORT2 = 80
 
 
 var ser = net.createServer(function(so){
@@ -53,6 +54,6 @@ var ser = net.createServer(function(so){
 })
 
 
-server.listen(PORT,function(){
+server.listen(PORT2,function(){
     console.log('Servidor Activo' + PORT)
 })
