@@ -23,6 +23,7 @@ const socket = require('socket.io')(server)
 
 var HOST = ipDinamic
 var PORT = process.env.PORT || 5000
+var PORT2 = 80
 
 
 
@@ -52,4 +53,4 @@ var ser = net.createServer(function(so){
     })
 })
 
-ser.listen(PORT,HOST)
+ser.listen(PORT2,HOST)
