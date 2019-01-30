@@ -21,6 +21,8 @@ Hello: 'World'
 }));
 });
 
+
+
 const net=require('net')
 const server = require('http').Server(aplication)
 const socket = require('socket.io')(server)
@@ -54,6 +56,6 @@ var ser = net.createServer(function(so){
 })
 
 
-server.listen(PORT,function(){
+server.listen(PORT,HOST,function(){
     console.log('Servidor Activo' + PORT)
 })
