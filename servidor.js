@@ -15,6 +15,12 @@ for(var k in interface){
     }
 }
 
+aplication.get('/',function (req,res){
+res.send(JSON.stringify({
+Hello: 'World'
+}));
+});
+
 const net=require('net')
 const server = require('http').Server(aplication)
 const socket = require('socket.io')(server)
@@ -25,9 +31,6 @@ var HOST = ipDinamic
 var PORT = process.env.PORT || 5000
 
 
-server.listen(PORT,function(){
-    console.log('Servidor Activo' + PORT)
-})
 
 var ser = net.createServer(function(so){
 
@@ -49,3 +52,7 @@ var ser = net.createServer(function(so){
     })
 })
 
+
+server.listen(PORT,function(){
+    console.log('Servidor Activo' + PORT)
+})
