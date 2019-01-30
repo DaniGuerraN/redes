@@ -27,10 +27,6 @@ var PORT2 = 80
 
 
 
-aplication.get("/",function(req,res){
-    res.send("Servidor activo");
-})
-
 var ser = net.createServer(function(so){
 
     
