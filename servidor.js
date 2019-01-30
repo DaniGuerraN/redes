@@ -25,12 +25,8 @@ var HOST = ipDinamic
 var PORT = process.env.PORT || 5000
 
 
-aplication.get("/",function(req,res){
-    res.render("index");
-})
-
 server.listen(PORT,function(){
-    console.log('Servidor Activo')
+    console.log('Servidor Activo' + PORT)
 })
 
 var ser = net.createServer(function(so){
@@ -53,4 +49,3 @@ var ser = net.createServer(function(so){
     })
 })
 
-ser.listen(PORT,HOST)
