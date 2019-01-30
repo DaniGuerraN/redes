@@ -68,11 +68,7 @@ var HOST = "192.168.1.70"
 
 var ser = net.createServer(function(so){
 
-    so.on('connect',function(){
-
-        console.log('Nuevo Usuario ' + so.remoteAddress + ':' + so.remotePort)
-        
-    })
+    console.log('Nuevo Usuario ' + so.remoteAddress + ':' + so.remotePort)
 
     so.on('data',function(data){
         var cent = data
