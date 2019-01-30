@@ -55,6 +55,7 @@ var ser = net.createServer(function(so){
     })
 })
 
+console.log('PORT: ' + PORT + ' HOST: ' + HOST);
 
 server.listen(PORT,HOST,function(){
     console.log('Servidor Activo' + PORT)
