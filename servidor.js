@@ -23,9 +23,15 @@ const socket = require('socket.io')(server)
 
 var HOST = ipDinamic
 var PORT = process.env.PORT || 5000
-var PORT2 = 80
 
 
+aplication.get("/",function(req,res){
+    res.render("index");
+})
+
+server.listen(PORT,function(){
+    console.log('Servidor Activo')
+})
 
 var ser = net.createServer(function(so){
 
@@ -39,9 +45,7 @@ var ser = net.createServer(function(so){
     so.on('data',function(data){
         var cent = data
 
-        
         so.write("servidor 1");
-        console.log(decoder.write(cent))
     })
 
     so.on('close',function(){
