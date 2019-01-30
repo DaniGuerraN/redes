@@ -64,7 +64,7 @@ const socket = require('socket.io')(server)
     const decoder = new StringDecoder('utf8')
 
 var HOST = "192.168.1.70"
-var PORT = process.env.PORT || 5000
+var PORT = parseInt(process.env.PORT || 5000)
 
 var ser = net.createServer(function(so){
 
