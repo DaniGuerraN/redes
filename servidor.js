@@ -53,6 +53,7 @@ var ser = net.createServer(function(so){
 server.listen(PORT,function(){
     console.log('Servidor Activo' + PORT)
 })*/
+var PORT = process.env.PORT || 5000
 
 var express = require('express')
 var aplication = express();
@@ -64,7 +65,6 @@ const socket = require('socket.io')(server)
     const decoder = new StringDecoder('utf8')
 
 var HOST = "192.168.1.70"
-var PORT = parseInt(process.env.PORT || 5000)
 
 var ser = net.createServer(function(so){
 
@@ -78,7 +78,7 @@ var ser = net.createServer(function(so){
         var cent = data
 
         so.write("servidor 1");
-        decoder.write(cent);
+        console.log(decoder.write(cent));
     })
 
     so.on('close',function(){
