@@ -21,7 +21,7 @@ for(var k in interface){
 
 var HOST = ipDinamic;
 
-var PORT = server.listen(process.env.PORT || 3000);
+var PORT = server.listen(process.env.PORT || 4000);
 
 
 var ser = net.createServer(function(so){
