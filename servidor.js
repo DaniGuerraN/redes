@@ -1,4 +1,7 @@
+const path = require('path') //#
 var express = require('express')
+var LCD = require('lcdi2c');
+var lcd = new LCD( 1, 0x27, 20, 4);
 var aplicacion = express()
 const os = require('os');
 const net = require('net');
@@ -6,7 +9,6 @@ const server = require('http').Server(aplicacion)
 const socket = require('socket.io')(server)
 const {StringDecoder} = require('string_decoder')
 const decoder = new  StringDecoder('utf8')
-
 var interface = os.networkInterfaces();
 var ipDinamic;
 for(var k in interface){
@@ -19,29 +21,21 @@ for(var k in interface){
     }
 }
 
+aplicacion.get('/', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
 var HOST = ipDinamic;
+var PORT = server.listen(process.env.PORT || 4000);
 
-var PORT = server.listen(process.env.PORT || 3000);
+console.log(path.join(__dirname,'public','index.html'))
 
+var ser = socket.on('connection',function(so){
 
-var ser = net.createServer(function(so){
- 
-    actual = new Date();
-    console.log('Usuario Conectado Servidor 1:' + so.remoteAddress + ':' + so.remotePort + "  " + actual)
+    so.on('datos', function (data) {
+        console.log(data);        
+        lcd.clear();
+        lcd.print('data');
+      });
 
-
-    
-    so.on('data', function(data){
-        var cent = data 
-        console.log(decoder.write(cent))
-        actual = new Date();
-
-        so.write("Bienvenido nuevo cliente al servidor 1 la Fecha es" + actual + ".");
-    })
-
-    so.on('close',function(){
-        console.log('Usuario Desconectado Servidor 1.')
-    })
 })
-
-ser.listen(PORT, HOST);
